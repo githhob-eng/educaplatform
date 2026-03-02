@@ -1,0 +1,197 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============ USUARIOS ============
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  nombre    String
+  rol       String   @default("STUDENT") // ADMIN, TEACHER, STUDENT
+  estado    String   @default("ACTIVE")  // ACTIVE, INACTIVE
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  cursosCreados    Curso[]
+  inscripciones    Inscripcion[]
+  calificaciones   Calificacion[]
+  asistencias      Asistencia[]
+  materialesSubidos Material[]
+  tareasEntregadas TareaEntregada[]
+  mensajesEnviados Mensaje[] @relation("from")
+  mensajesRecibidos Mensaje[] @relation("to")
+  notificaciones   Notificacion[]
+}
+
+// ============ CURSOS ============
+model Curso {
+  id          String   @id @default(cuid())
+  nombre      String
+  descripcion String?
+  profesor_id String
+  profesor    User     @relation(fields: [profesor_id], references: [id])
+  estado      String   @default("ACTIVE") // ACTIVE, INACTIVE, ARCHIVED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relaciones
+  inscripciones    Inscripcion[]
+  modulos          Modulo[]
+  calificaciones   Calificacion[]
+  asistencias      Asistencia[]
+  tareas           Tarea[]
+}
+
+// ============ INSCRIPCIONES ============
+model Inscripcion {
+  id        String   @id @default(cuid())
+  usuario_id String
+  usuario   User     @relation(fields: [usuario_id], references: [id])
+  curso_id  String
+  curso     Curso    @relation(fields: [curso_id], references: [id])
+  estado    String   @default("ACTIVO") // ACTIVO, COMPLETADO
+  createdAt DateTime @default(now())
+
+  @@unique([usuario_id, curso_id])
+}
+
+// ============ MÓDULOS (Temas) ============
+model Modulo {
+  id        String   @id @default(cuid())
+  nombre    String
+  curso_id  String
+  curso     Curso    @relation(fields: [curso_id], references: [id])
+  orden     Int      @default(1)
+  createdAt DateTime @default(now())
+
+  // Relaciones
+  materiales Material[]
+  tareas     Tarea[]
+}
+
+// ============ MATERIALES ============
+model Material {
+  id        String   @id @default(cuid())
+  titulo    String
+  tipo      String   // PDF, VIDEO, LINK, DOCUMENTO
+  url       String?
+  contenido String?
+  modulo_id String
+  modulo    Modulo   @relation(fields: [modulo_id], references: [id])
+  profesor_id String
+  profesor  User     @relation(fields: [profesor_id], references: [id])
+  createdAt DateTime @default(now())
+}
+
+// ============ CALIFICACIONES ============
+model Calificacion {
+  id        String   @id @default(cuid())
+  estudiante_id String
+  estudiante    User     @relation(fields: [estudiante_id], references: [id])
+  curso_id      String
+  curso         Curso    @relation(fields: [curso_id], references: [id])
+  calificacion  Float    @default(0)
+  feedback      String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([estudiante_id, curso_id])
+}
+
+// ============ ASISTENCIA ============
+model Asistencia {
+  id        String   @id @default(cuid())
+  estudiante_id String
+  estudiante    User     @relation(fields: [estudiante_id], references: [id])
+  curso_id      String
+  curso         Curso    @relation(fields: [curso_id], references: [id])
+  presente  Boolean  @default(false)
+  fecha     DateTime
+  createdAt DateTime @default(now())
+}
+
+// ============ TAREAS ============
+model Tarea {
+  id        String   @id @default(cuid())
+  titulo    String
+  descripcion String?
+  curso_id  String
+  curso     Curso    @relation(fields: [curso_id], references: [id])
+  modulo_id String
+  modulo    Modulo   @relation(fields: [modulo_id], references: [id])
+  fechaVencimiento DateTime
+  estado    String   @default("ACTIVA") // ACTIVA, CERRADA
+  createdAt DateTime @default(now())
+
+  // Relaciones
+  entregas TareaEntregada[]
+}
+
+// ============ ENTREGAS DE TAREAS ============
+model TareaEntregada {
+  id        String   @id @default(cuid())
+  tarea_id  String
+  tarea     Tarea    @relation(fields: [tarea_id], references: [id])
+  estudiante_id String
+  estudiante    User     @relation(fields: [estudiante_id], references: [id])
+  archivo   String?
+  calificacion Float?
+  feedback  String?
+  estado    String   @default("ENTREGADO") // ENTREGADO, CALIFICADO
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tarea_id, estudiante_id])
+}
+
+// ============ MENSAJERÍA ============
+model Mensaje {
+  id        String   @id @default(cuid())
+  from_id   String
+  from      User     @relation("from", fields: [from_id], references: [id])
+  to_id     String
+  to        User     @relation("to", fields: [to_id], references: [id])
+  contenido String
+  leido     Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// ============ NOTIFICACIONES ============
+model Notificacion {
+  id        String   @id @default(cuid())
+  usuario_id String
+  usuario   User     @relation(fields: [usuario_id], references: [id])
+  tipo      String   // CALIFICACION, MENSAJE, TAREA, CURSO, SISTEMA
+  titulo    String
+  descripcion String?
+  leido     Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// ============ PAGOS (FUTURO) ============
+model Pago {
+  id        String   @id @default(cuid())
+  usuario_id String
+  monto     Float
+  estado    String   @default("PENDIENTE")
+  createdAt DateTime @default(now())
+}
+
+// ============ SESIONES (FUTURO) ============
+model Session {
+  id        String   @id @default(cuid())
+  usuario_id String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}

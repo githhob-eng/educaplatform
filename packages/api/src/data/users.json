@@ -1,0 +1,61 @@
+[
+  {
+    "id": "admin-root",
+    "nombre": "Admin",
+    "email": "admin@educaplatform.com",
+    "dni": "11111111",
+    "rol": "ADMIN",
+    "estado": "ACTIVE",
+    "password": "admin123",
+    "comunidad_id": "root",
+    "fecha_creacion": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "prof-carlos",
+    "nombre": "Carlos García",
+    "email": "carlos@educaplatform.com",
+    "dni": "22222222",
+    "rol": "TEACHER",
+    "estado": "ACTIVE",
+    "password": "profesor123",
+    "creado_por_id": "admin-root",
+    "comunidad_id": "root",
+    "fecha_creacion": "2024-01-02T00:00:00Z"
+  },
+  {
+    "id": "prof-maria",
+    "nombre": "María López",
+    "email": "maria@educaplatform.com",
+    "dni": "33333333",
+    "rol": "TEACHER",
+    "estado": "ACTIVE",
+    "password": "profesor123",
+    "creado_por_id": "admin-root",
+    "comunidad_id": "root",
+    "fecha_creacion": "2024-01-03T00:00:00Z"
+  },
+  {
+    "id": "student-juan",
+    "nombre": "Juan García",
+    "email": "juan@educaplatform.com",
+    "dni": "44444444",
+    "rol": "STUDENT",
+    "estado": "ACTIVE",
+    "password": "estudiante123",
+    "creado_por_id": "prof-carlos",
+    "comunidad_id": "root",
+    "fecha_creacion": "2024-01-04T00:00:00Z"
+  },
+  {
+    "id": "student-ana",
+    "nombre": "Ana Martínez",
+    "email": "ana@educaplatform.com",
+    "dni": "55555555",
+    "rol": "STUDENT",
+    "estado": "ACTIVE",
+    "password": "estudiante123",
+    "creado_por_id": "prof-carlos",
+    "comunidad_id": "root",
+    "fecha_creacion": "2024-01-05T00:00:00Z"
+  }
+]
