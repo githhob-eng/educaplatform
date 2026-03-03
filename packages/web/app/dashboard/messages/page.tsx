@@ -207,7 +207,7 @@ export default function MessagesPage() {
     conversationItemActive: { backgroundColor: '#f0f4ff', borderLeftColor: '#4f46e5' },
     conversationName: { fontWeight: '600', color: '#1f2937', fontSize: '13px', marginBottom: '4px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
     conversationPreview: { fontSize: '12px', color: '#9ca3af', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' },
-    badge: { display: 'inline-block', backgroundColor: '#ef4444', color: '#fff', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 'bold' },
+    badge: { display: 'flex', backgroundColor: '#ef4444', color: '#fff', borderRadius: '50%', width: '20px', height: '20px', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 'bold' },
     emptyConversations: { padding: '32px 16px', textAlign: 'center' as const, color: '#9ca3af', fontSize: '13px' },
 
     // CHAT
