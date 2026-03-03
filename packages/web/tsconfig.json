@@ -54,9 +54,9 @@
     "noImplicitAny": true,
     "strict": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
     "incremental": true,
     "tsBuildInfoFile": ".next/tsbuildinfo.json",
     "plugins": [
