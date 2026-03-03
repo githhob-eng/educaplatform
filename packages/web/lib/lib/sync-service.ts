@@ -1,7 +1,7 @@
 // packages/web/lib/sync-service.ts
 // Servicio para sincronizar usuarios con el backend
 
-const API_URL = 'http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api';
+const API_URL = 'https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api';
 
 export const SyncService = {
   /**

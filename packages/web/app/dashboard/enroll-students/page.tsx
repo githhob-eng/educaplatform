@@ -57,7 +57,7 @@ export default function EnrollStudentsPage() {
       const token = localStorage.getItem('token');
       
       // Obtener usuarios
-      const usersRes = await fetch('http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users', {
+      const usersRes = await fetch('https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users', {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       const usersData = await usersRes.json();
@@ -153,7 +153,7 @@ export default function EnrollStudentsPage() {
     }
 
     try {
-      const response = await fetch('http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/register', {
+      const response = await fetch('https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

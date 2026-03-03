@@ -34,7 +34,7 @@ export default function UsersPage() {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch('http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users', {
+      const response = await fetch('https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users', {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       const data = await response.json();
@@ -59,7 +59,7 @@ export default function UsersPage() {
       const token = localStorage.getItem('token');
       
       if (editingId) {
-        const response = await fetch(`http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users/${editingId}`, {
+        const response = await fetch(`https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users/${editingId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ export default function UsersPage() {
           return;
         }
       } else {
-        const response = await fetch('http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/register', {
+        const response = await fetch('https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -131,7 +131,7 @@ export default function UsersPage() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users/${id}`, {
+      const response = await fetch(`https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -155,7 +155,7 @@ export default function UsersPage() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users/${id}/disable`, {
+      const response = await fetch(`https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users/${id}/disable`, {
         method: 'PATCH',
         headers: { 'Authorization': `Bearer ${token}` },
       });
