@@ -193,7 +193,7 @@ export default function Home() {
             <Link href="/register" style={{ ...styles.button, ...styles.primaryBtn, textDecoration: 'none' }}>
               🚀 Comenzar Ahora
             </Link>
-            <a href="http://localhost:3001/api/health" target="_blank" rel="noopener noreferrer" 
+            <a href="http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/health" target="_blank" rel="noopener noreferrer" 
               style={{ ...styles.button, ...styles.secondaryBtn, textDecoration: 'none' }}>
               🔌 Ver API
             </a>
@@ -274,7 +274,7 @@ export default function Home() {
           EducaPlatform © 2024 - Plataforma Educativa Escalable
         </p>
         <p style={{ fontSize: '14px', color: '#666' }}>
-          🌐 Frontend: http://localhost:3000 | ⚙️ API: http://localhost:3001/api
+          🌐 Frontend: http://localhost:3000 | ⚙️ API: http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api
         </p>
         <p style={{ fontSize: '12px', color: '#555', marginTop: '15px' }}>
           Hecho con ❤️ usando Next.js, Express, PostgreSQL y Tailwind CSS

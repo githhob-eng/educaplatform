@@ -2,7 +2,7 @@
 // Servicio para sincronizar usuarios entre frontend y backend
 
 export class SyncUsersService {
-  private static API_URL = 'http://localhost:3001/api';
+  private static API_URL = 'http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api';
 
   /**
    * Sincronizar un nuevo usuario al backend

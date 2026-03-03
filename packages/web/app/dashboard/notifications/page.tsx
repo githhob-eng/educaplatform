@@ -52,7 +52,7 @@ export default function NotificationsPage() {
 
   const loadData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/auth/users');
+      const response = await fetch('http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users');
       const data = await response.json();
       setUsers(data.users || []);
     } catch (error) {

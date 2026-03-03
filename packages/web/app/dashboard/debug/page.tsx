@@ -30,12 +30,12 @@ export default function DebugHierarchyData() {
   const syncToBackend = async () => {
     try {
       for (const usr of hierarchyData) {
-        const existing = await fetch(`http://localhost:3001/api/users`);
+        const existing = await fetch(`http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/users`);
         const existingUsers = await existing.json();
         const userExists = existingUsers.find((u: any) => u.id === usr.id);
 
         if (!userExists) {
-          const response = await fetch('http://localhost:3001/api/users', {
+          const response = await fetch('http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(usr),

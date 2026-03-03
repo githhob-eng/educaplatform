@@ -48,7 +48,7 @@ export default function GradesPage() {
 
   const loadData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/auth/users');
+      const response = await fetch('http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/users');
       const data = await response.json();
       const studentList = (data.users || []).filter((u: any) => u.rol === 'STUDENT');
       setStudents(studentList);

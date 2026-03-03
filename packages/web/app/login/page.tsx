@@ -28,7 +28,7 @@ export default function LoginPage() {
       console.log('🔐 Intentando login con DNI:', dni);
       
       // ✅ CAMBIO CLAVE: POST a /api/auth/login (no GET a /api/auth/users)
-      const response = await fetch('http://localhost:3001/api/auth/login', {
+      const response = await fetch('http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

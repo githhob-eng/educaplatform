@@ -126,7 +126,7 @@ npm run dev
 
 Acceder a:
 - Frontend: http://localhost:3000
-- API: http://localhost:3001/api
+- API: http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api
 
 ---
 
@@ -230,7 +230,7 @@ Plan Enterprise: 20 estudiantes por $89.99
 
 ## 📡 API REST
 
-Base URL: `http://localhost:3001/api`
+Base URL: `http://https://educaplatform-bg8vrm5zl-premedics-projects.vercel.app/api`
 
 ### Autenticación
 ```
