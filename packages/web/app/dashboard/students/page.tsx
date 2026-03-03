@@ -154,8 +154,8 @@ export default function StudentPage() {
     
     const hierarchyUsers = localStorage.getItem('hierarchy_users');
     const allHierarchyUsers = hierarchyUsers ? JSON.parse(hierarchyUsers) : [];
-    const filtered = allHierarchyUsers.map((u: User) =>
-      u.id === studentId ? { ...u, estado: 'BLOCKED', motivo_bloqueo: blockReason } : u
+    const filtered = allHierarchyUsers.map((u: any) =>
+    u.id === studentId ? { ...u, estado: 'BLOCKED' as const, motivo_bloqueo: blockReason } : u
     );
     localStorage.setItem('hierarchy_users', JSON.stringify(filtered));
 
@@ -176,8 +176,8 @@ export default function StudentPage() {
     
     const hierarchyUsers = localStorage.getItem('hierarchy_users');
     const allHierarchyUsers = hierarchyUsers ? JSON.parse(hierarchyUsers) : [];
-    const filtered = allHierarchyUsers.map((u: User) =>
-      u.id === studentId ? { ...u, estado: 'ACTIVE', motivo_bloqueo: '' } : u
+    const filtered = allHierarchyUsers.map((u: any) =>
+      u.id === studentId ? { ...u, estado: 'BLOCKED' as const, motivo_bloqueo: blockReason } : u
     );
     localStorage.setItem('hierarchy_users', JSON.stringify(filtered));
 
@@ -198,7 +198,7 @@ export default function StudentPage() {
     
     const hierarchyUsers = localStorage.getItem('hierarchy_users');
     const allHierarchyUsers = hierarchyUsers ? JSON.parse(hierarchyUsers) : [];
-    const filtered = allHierarchyUsers.filter((u: User) => u.id !== studentId);
+    const filtered = allHierarchyUsers.filter((u: any) => u.id !== studentId);
     localStorage.setItem('hierarchy_users', JSON.stringify(filtered));
 
     setMessage('✅ Estudiante eliminado');
