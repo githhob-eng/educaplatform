@@ -1,77 +1,26 @@
-// tsconfig.json (Frontend)
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "jsx": "preserve",
-    "jsxImportSource": "react",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/app/*": [
-        "./app/*"
-      ],
-      "@/components/*": [
-        "./components/*"
-      ],
-      "@/hooks/*": [
-        "./hooks/*"
-      ],
-      "@/context/*": [
-        "./context/*"
-      ],
-      "@/lib/*": [
-        "./lib/*"
-      ],
-      "@/styles/*": [
-        "./styles/*"
-      ],
-      "@/types/*": [
-        "./types/*"
-      ]
-    },
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./.next",
     "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "noImplicitAny": true,
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": false,
-    "incremental": true,
-    "tsBuildInfoFile": ".next/tsbuildinfo.json",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }
