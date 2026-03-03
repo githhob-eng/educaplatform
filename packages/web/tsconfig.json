@@ -22,7 +22,6 @@
     "outDir": "./dist",
     "isolatedModules": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
