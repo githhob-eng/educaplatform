@@ -24,7 +24,6 @@ export default function AdminsPage() {
   const [user, setUser] = useState<any>(null);
   const [allUsers, setAllUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
-  const [message, setMessage] = useState('');
 
   useEffect(() => {
     setMounted(true);
@@ -69,12 +68,7 @@ export default function AdminsPage() {
     }
   }, [mounted, router]);
 
-  const showMsg = (text: string) => {
-    setMessage(text);
-    setTimeout(() => setMessage(''), 4000);
-  };
-
-  // ✅ OBTENER TODOS LOS ADMINS EN LA RED (COMO EN HIERARCHY)
+  // ✅ OBTENER TODOS LOS ADMINS EN LA RED
   const getMyAdmins = (): User[] => {
     if (!user) return [];
 
@@ -128,23 +122,6 @@ export default function AdminsPage() {
           Administra todos los admins en tu red jerárquica
         </p>
       </div>
-
-      {message && (
-        <div
-          style={{
-            padding: '12px 16px',
-            borderRadius: '8px',
-            marginBottom: '20px',
-            fontSize: '14px',
-            fontWeight: '600',
-            backgroundColor: '#d1fae5',
-            color: '#065f46',
-            border: '1px solid #a7f3d0',
-          }}
-        >
-          {message}
-        </div>
-      )}
 
       <div
         style={{
